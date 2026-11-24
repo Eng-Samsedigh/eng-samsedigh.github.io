@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="theme-color" content="#1769d2">
+<meta name="description" content="روان‌خوان؛ همراه صمیمی تمرین تندخوانی فارسی">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="روان‌خوان">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>روان‌خوان | همراه تمرین تندخوانی</title>
+<style>
+:root{
+ --bg:#eef5ff;--card:#ffffff;--ink:#183153;--muted:#71829a;--line:#dce8f7;
+ --accent:#1769d2;--accent2:#4c9cff;--soft:#e7f1ff;--shadow:0 12px 32px #174a8212;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 12% 0%,#dcecff 0,transparent 36%),var(--bg);color:var(--ink);
+ font-family:"Vazirmatn","IRANSansX",Tahoma,Arial,sans-serif;line-height:1.9}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:1px solid var(--line);border-radius:14px;padding:10px 16px;background:white;color:var(--ink);transition:.18s ease}
+button:hover{transform:translateY(-1px);border-color:#9fc7f5;box-shadow:0 5px 14px #1769d21a}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border-color:transparent;font-weight:700}
+.quiet{background:var(--soft);border-color:transparent;color:var(--accent);font-weight:600}
+header{max-width:1100px;margin:auto;padding:25px 22px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border-radius:17px;background:linear-gradient(145deg,#1769d2,#68b2ff);color:white;display:grid;place-items:center;font-size:24px;font-weight:bold;box-shadow:0 7px 18px #1769d238}
+.brand h1{font-size:22px;margin:0;letter-spacing:-.4px}.brand p{font-size:12px;color:var(--muted);margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 22px 50px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:20px}
+.tab{border:0;background:transparent;color:var(--muted);font-weight:600}.tab.active{background:var(--soft);color:var(--accent);font-weight:800}
+.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:17px}
+.card{background:var(--card);border:1px solid #e1ebf8;border-radius:22px;padding:21px;box-shadow:var(--shadow)}
+h2{font-size:18px;margin:0 0 13px}h3{font-size:15px;margin:0 0 9px}.muted{color:var(--muted);font-size:12px}
+.reader{min-height:240px;border-radius:20px;background:linear-gradient(145deg,#f0f7ff,#e6f1ff);border:1px solid #d7e9ff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;margin:13px 0}
+.word{font-size:clamp(34px,6vw,58px);font-weight:800;line-height:1.5;color:#155bb5;overflow-wrap:anywhere}
+.reader small{color:#7189a8;margin-top:8px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:700}
+.field textarea,.field input[type=text]{width:100%;border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfdff;color:var(--ink)}
+textarea{min-height:145px;resize:vertical;line-height:2}
+.range-line{display:flex;justify-content:space-between;align-items:center;font-size:13px}.range-line strong{color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.progress{height:9px;background:#eaf1fa;border-radius:20px;overflow:hidden;margin:11px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#1769d2,#70b8ff);transition:width .15s}
+.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:linear-gradient(145deg,#f7fbff,#edf5ff);border:1px solid #e4effc;border-radius:15px;padding:13px}
+.stat strong{display:block;font-size:23px;color:var(--accent)}.stat span{font-size:11px;color:var(--muted)}
+.hidden{display:none!important}.list{display:grid;gap:10px}
+.item{border:1px solid var(--line);border-radius:15px;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fcfdff}
+.item p{margin:0;font-size:13px;font-weight:700}.item small{color:var(--muted)}
+.pill{font-size:11px;background:var(--soft);color:var(--accent);padding:5px 11px;border-radius:30px;font-weight:700}
+.quiz-option{display:block;width:100%;text-align:right;margin:8px 0}.quiz-option.chosen{border-color:var(--accent);background:var(--soft)}
+.notice{background:#edf6ff;border:1px solid #d6eaff;border-radius:14px;padding:11px 13px;font-size:12px;color:#42658e;margin-top:13px}
+#installBtn{white-space:nowrap}footer{text-align:center;color:var(--muted);font-size:11px;margin-top:27px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}header{padding-top:16px}.wrap{padding:10px 14px 35px}.card{padding:16px}.brand h1{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">ر</div><div><h1>روان‌خوان</h1><p>یه همراه کوچیک برای سریع‌تر و دقیق‌تر خوندن ✨</p></div></div><button id="installBtn" class="primary">＋ نصب برنامه</button></header>
+<main class="wrap">
+<nav class="tabs">
+<button class="tab active" data-tab="practice">تمرین خواندن</button>
+<button class="tab" data-tab="library">کتابخانه متن</button>
+<button class="tab" data-tab="stats">آمار پیشرفت</button>
+<button class="tab" data-tab="quiz">درک مطلب</button>
+</nav>
+<section id="practice">
+<div class="grid">
+<div class="card">
+<h2>بزن بریم؛ تمرین کلمه‌به‌کلمه</h2>
+<div class="range-line"><label for="speed">سرعت نمایش</label><strong id="speedLabel">۳۰۰ کلمه در دقیقه</strong></div>
+<input id="speed" type="range" min="60" max="1500" step="10" value="300">
+<div class="reader"><div class="word" id="currentWord">آماده‌ای؟</div><small id="readerStatus">متنت رو آماده کن و شروع کن!</small></div>
+<div class="range-line"><span id="counter">۰ / ۰ کلمه</span><span id="percent">۰٪</span></div>
+<div class="progress"><div id="progressBar"></div></div>
+<div class="controls">
+<button class="primary" id="startBtn">▶ شروع</button><button id="pauseBtn" disabled>Ⅱ مکث</button><button id="restartBtn">از اول</button><button id="nextBtn">کلمه بعدی ←</button>
+</div>
+<div class="field"><label for="textInput">متن تمرین</label><textarea id="textInput" placeholder="متن فارسی را اینجا وارد یا جای‌گذاری کن..."></textarea></div>
+<div class="controls"><button class="quiet" id="loadTextBtn">بارگذاری متن</button><label><input type="file" id="pdfFile" accept="application/pdf,.txt" hidden><button type="button" id="pdfBtn">افزودن PDF یا TXT</button></label><button id="clearBtn">پاک کردن متن</button></div>
+<div class="notice">برای PDF از فایل‌های متنی یا PDF دارای متن قابل انتخاب استفاده کن. فایل‌های اسکن‌شده که فقط تصویر هستند، به OCR نیاز دارند.</div>
+</div>
+<aside class="card">
+<h2>خلاصه جلسه</h2>
+<div class="statgrid">
+<div class="stat"><strong id="sessionWords">۰</strong><span>کلمات نمایش‌داده‌شده</span></div>
+<div class="stat"><strong id="sessionTime">۰:۰۰</strong><span>زمان تمرین</span></div>
+<div class="stat"><strong id="sessionSpeed">۳۰۰</strong><span>سرعت انتخابی</span></div>
+<div class="stat"><strong id="sessionDone">۰٪</strong><span>پیشرفت متن</span></div>
+</div>
+<div class="field"><label>راهنمای شروع</label><p class="muted">با سرعتی شروع کن که راحت متوجه متن می‌شی. کم‌کم سرعتت رو بالا ببر و آخرش درک مطلبت رو هم بسنج.</p></div>
+</aside>
+</div>
+</section>
+<section id="library" class="hidden">
+<div class="card"><h2>کتابخانه متن‌های فارسی</h2><p class="muted">یکی از متن‌ها را انتخاب کن تا برای تمرین بارگذاری شود.</p><div class="list" id="libraryList"></div></div>
+</section>
+<section id="stats" class="hidden">
+<div class="card"><h2>آمار کلی تمرین</h2><div class="statgrid">
+<div class="stat"><strong id="totalSessions">۰</strong><span>جلسه‌های تکمیل‌شده</span></div>
+<div class="stat"><strong id="totalWords">۰</strong><span>مجموع کلمات خوانده‌شده</span></div>
+<div class="stat"><strong id="bestSpeed">۰</strong><span>بیشترین سرعت انتخابی</span></div>
+<div class="stat"><strong id="totalMinutes">۰</strong><span>دقیقه تمرین</span></div>
+</div><h3 style="margin-top:20px">جلسه‌های اخیر</h3><div class="list" id="historyList"></div><div class="controls"><button id="clearStats">پاک کردن آمار</button></div></div>
+</section>
+<section id="quiz" class="hidden">
+<div class="card"><h2>آزمون درک مطلب</h2><p class="muted">پس از خواندن متن، به پرسش‌های کوتاه درباره همان متن پاسخ بده.</p><div id="quizArea"><p>ابتدا یک متن بخوان و سپس دکمه ساخت آزمون را بزن.</p><button class="primary" id="makeQuiz">ساخت آزمون از متن فعلی</button></div></div>
+</section>
+<footer>روان‌خوان با تو تمرین می‌کنه 💙 · آمار فقط روی همین دستگاه ذخیره می‌شه.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id), fa=n=>Number(n).toLocaleString('fa-IR');
+const defaultText=`یک عصر آرام پاییزی، باران آرامی روی پنجره می‌زد. سارا کتابی را که مدت‌ها نیمه‌کاره گذاشته بود باز کرد. او تصمیم گرفت هر روز چند صفحه بخواند و برای خودش زمانی کوتاه و منظم کنار بگذارد. در ابتدا تمرکز کردن دشوار بود، اما کم‌کم ذهنش با تمرین سازگار شد. او فهمید که پیشرفت واقعی از قدم‌های کوچک و پیوسته ساخته می‌شود.`;
+const stories=[
+{title:"قرار زیر باران",desc:"داستانی کوتاه درباره آشنایی و اعتماد",text:"آرمان همیشه فکر می‌کرد بعضی اتفاق‌ها فقط در فیلم‌ها رخ می‌دهند. تا اینکه یک عصر پاییزی، در کافه‌ای کوچک با دختری به نام رها آشنا شد. رها عاشق کتاب و موسیقی بود و آرمان از گفت‌وگو با او لذت می‌برد. روزها گذشت و دوستی آن‌ها عمیق‌تر شد. یک شب زیر باران، رها گفت از رفتن آدم‌ها می‌ترسد. آرمان پاسخ داد که هیچ رابطه‌ای بدون گفت‌وگو و صداقت پایدار نمی‌ماند. آن دو فهمیدند عشق فقط یک احساس نیست؛ بلکه توجه، احترام و تلاش روزانه است."},
+{title:"راز یک صبح آرام",desc:"متنی درباره عادت‌های کوچک",text:"صبح زود، پیش از آنکه شهر کاملاً بیدار شود، نرگس پنجره را باز کرد. هوای تازه وارد اتاق شد و صدای پرندگان از دور به گوش رسید. او برای خودش چای ریخت و فهرست کوتاهی از کارهای روزانه نوشت. تصمیم گرفت به جای انجام دادن همه کارها به صورت هم‌زمان، فقط روی یک کار تمرکز کند. در پایان روز متوجه شد که آرامش بیشتر، نتیجه برنامه‌ای ساده و واقع‌بینانه بوده است."},
+{title:"کتابخانه قدیمی",desc:"داستانی درباره کنجکاوی",text:"در انتهای یک کوچه باریک، کتابخانه‌ای قدیمی قرار داشت. قفسه‌های چوبی آن پر از کتاب‌هایی بود که بوی کاغذ و خاطره می‌دادند. امیر هر هفته به آنجا می‌رفت و کتاب تازه‌ای انتخاب می‌کرد. یک روز میان صفحات کتابی قدیمی، یادداشتی پیدا کرد که خواننده قبلی نوشته بود: هر صفحه دری به سوی دنیایی تازه است. امیر آن جمله را در دفترش نوشت و تصمیم گرفت مطالعه را به بخشی همیشگی از زندگی‌اش تبدیل کند."}
+];
+let words=[],idx=0,timer=null,running=false,startAt=0,elapsed=0,sessionCount=0,sessionStart=0;
+let stats=JSON.parse(localStorage.getItem('ravanStats')||'{"sessions":0,"words":0,"minutes":0,"best":0,"history":[]}');
+function saveStats(){localStorage.setItem('ravanStats',JSON.stringify(stats))}
+function stop(){if(timer){clearTimeout(timer);timer=null}if(running){elapsed+=Date.now()-startAt;running=false} $('startBtn').disabled=false;$('pauseBtn').disabled=true}
+function update(){let p=words.length?Math.round(idx/words.length*100):0;$('counter').textContent=`${fa(idx)} / ${fa(words.length)} کلمه`;$('percent').textContent=fa(p)+'٪';$('progressBar').style.width=p+'%';$('sessionWords').textContent=fa(sessionCount);$('sessionSpeed').textContent=fa($('speed').value);$('sessionDone').textContent=fa(p)+'٪';}
+function show(){if(idx>=words.length){finish();return} $('currentWord').textContent=words[idx];idx++;sessionCount++;update()}
+function tick(){if(!running)return;show();if(running)timer=setTimeout(tick,60000/Number($('speed').value))}
+function finish(){stop();$('readerStatus').textContent='آفرین! متن تمام شد.';$('currentWord').textContent='پایان تمرین';saveSession()}
+function saveSession(){if(!sessionCount)return;let mins=Math.max(1,Math.round((elapsed+(running?Date.now()-startAt:0))/60000));stats.sessions++;stats.words+=sessionCount;stats.minutes+=mins;stats.best=Math.max(stats.best,Number($('speed').value));stats.history.unshift({date:new Date().toLocaleDateString('fa-IR'),words:sessionCount,minutes:mins,speed:Number($('speed').value)});stats.history=stats.history.slice(0,12);saveStats();sessionCount=0;elapsed=0;renderStats()}
+function start(){if(!words.length)loadText();if(!words.length)return;if(idx>=words.length)reset();running=true;startAt=Date.now();$('startBtn').disabled=true;$('pauseBtn').disabled=false;$('readerStatus').textContent='در حال نمایش کلمات';tick()}
+function reset(){stop();idx=0;sessionCount=0;elapsed=0;$('currentWord').textContent=words[0]||'آماده‌ای؟';$('readerStatus').textContent='آماده شروع';update()}
+function loadText(){stop();words=$('textInput').value.trim().split(/\s+/).filter(Boolean);reset();$('readerStatus').textContent=words.length?'متن بارگذاری شد':'متنی وارد نشده';}
+$('speed').oninput=()=>{$('speedLabel').textContent=fa($('speed').value)+' کلمه در دقیقه';$('sessionSpeed').textContent=fa($('speed').value)};
+$('startBtn').onclick=start;$('pauseBtn').onclick=()=>{stop();$('readerStatus').textContent='مکث شد'};$('restartBtn').onclick=reset;$('nextBtn').onclick=()=>{if(!words.length)loadText();if(words.length){stop();show();$('readerStatus').textContent='نمایش دستی'}};$('loadTextBtn').onclick=loadText;$('clearBtn').onclick=()=>{$('textInput').value='';loadText()};
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));['practice','library','stats','quiz'].forEach(x=>$(x).classList.toggle('hidden',x!==b.dataset.tab));if(b.dataset.tab==='stats')renderStats()});
+function renderLibrary(){$('libraryList').innerHTML='';stories.forEach((s,i)=>{let d=document.createElement('div');d.className='item';let left=document.createElement('div');let p=document.createElement('p');p.textContent=s.title;let sm=document.createElement('small');sm.textContent=s.desc;left.append(p,sm);let btn=document.createElement('button');btn.className='quiet';btn.textContent='انتخاب متن';btn.onclick=()=>{$('textInput').value=s.text;loadText();document.querySelector('[data-tab="practice"]').click()};d.append(left,btn);$('libraryList').append(d)})}
+function renderStats(){$('totalSessions').textContent=fa(stats.sessions);$('totalWords').textContent=fa(stats.words);$('bestSpeed').textContent=fa(stats.best);$('totalMinutes').textContent=fa(stats.minutes);$('historyList').innerHTML='';if(!stats.history.length){$('historyList').textContent='هنوز جلسه‌ای ثبت نشده است.';return}stats.history.forEach(h=>{let d=document.createElement('div');d.className='item';let p=document.createElement('p');p.textContent=h.date+' · '+fa(h.words)+' کلمه';let sm=document.createElement('small');sm.textContent=fa(h.minutes)+' دقیقه · سرعت '+fa(h.speed);let x=document.createElement('div');x.append(p,sm);d.append(x);$('historyList').append(d)})}
+$('clearStats').onclick=()=>{if(confirm('آمار ذخیره‌شده پاک شود؟')){stats={sessions:0,words:0,minutes:0,best:0,history:[]};saveStats();renderStats()}};
+$('makeQuiz').onclick=()=>{if(!words.length)loadText();let t=$('textInput').value.trim();if(!t){$('quizArea').innerHTML='<p>ابتدا یک متن وارد کن.</p>';return}let qs=[{q:'شخصیت یا موضوع اصلی متن چه بود؟',opts:['موضوع کلی و شخصیت‌های متن','یک موضوع نامرتبط','موضوعی که در متن نیامده'],a:0,why:'به نام‌ها و موضوع تکرارشده در متن توجه کن.'},{q:'کدام گزینه بهترین خلاصه متن است؟',opts:['خلاصه‌ای که پیام اصلی را منتقل کند','یک جزئیات بی‌اهمیت','موضوعی خارج از متن'],a:0,why:'خلاصه باید ایده اصلی را پوشش دهد.'},{q:'برای پاسخ دقیق‌تر به پرسش‌های متن چه کاری مفید است؟',opts:['مرور جمله‌های مرتبط','حدس زدن بدون توجه به متن','نادیده گرفتن جزئیات'],a:0,why:'پاسخ را با شواهد متن تطبیق بده.'}];let n=0,score=0;function draw(){if(n>=qs.length){$('quizArea').innerHTML=`<h3>آزمون تمام شد</h3><p>نتیجه: ${fa(score)} از ${fa(qs.length)}</p><button class="primary" onclick="document.getElementById('makeQuiz').click()">تکرار آزمون</button>`;return}let q=qs[n];$('quizArea').innerHTML=`<p>پرسش ${fa(n+1)} از ${fa(qs.length)}</p><h3>${q.q}</h3><div id="opts"></div><p id="feedback" class="muted"></p><button class="primary" id="answerNext" disabled>بعدی</button>`;q.opts.forEach((o,i)=>{let b=document.createElement('button');b.className='quiz-option';b.textContent=o;b.onclick=()=>{document.querySelectorAll('.quiz-option').forEach(x=>x.disabled=true);if(i===q.a)score++;$('feedback').textContent=q.why;$('answerNext').disabled=false};$('opts').append(b)});$('answerNext').onclick=()=>{n++;draw()}}draw()};
+$('pdfBtn').onclick=()=>$('pdfFile').click();
+$('pdfFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{if(f.name.toLowerCase().endsWith('.txt')){$('textInput').value=await f.text();loadText();return}if(!window.pdfjsLib){await new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=resolve;s.onerror=reject;document.head.append(s)})}pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';let doc=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;let out=[];for(let p=1;p<=doc.numPages;p++){let page=await doc.getPage(p);let c=await page.getTextContent();out.push(c.items.map(x=>x.str).join(' '))}$('textInput').value=out.join('\n');loadText()}catch(err){alert('خواندن فایل ممکن نشد. برای PDF به اینترنت نیاز است و فایل باید متن قابل انتخاب داشته باشد.')}e.target.value=''};
+$('textInput').value=defaultText;loadText();renderLibrary();renderStats();
+</script>
+
+<script>
+let deferredInstallPrompt = null;
+const installButton = document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  installButton.classList.remove('hidden');
+});
+installButton.addEventListener('click', async () => {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+  } else {
+    alert('برای نصب روی آیفون: در Safari دکمه Share را بزن، گزینه Add to Home Screen را انتخاب کن و سپس Add را بزن. در اندروید یا کامپیوتر، از منوی مرورگر گزینه Install app یا Add to Home Screen را انتخاب کن. برای نصب، برنامه باید از یک آدرس امن HTTPS باز شده باشد.');
+  }
+});
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+
+</body></html>
